@@ -51,9 +51,36 @@ const provinces = await (await fetch(url)).json();
 
 To show the subdistricts of one province, filter the features by `province_code`.
 
-## Source
+## How it is built
 
-The lines come from the OCHA COD-AB dataset for Thailand on the [Humanitarian Data Exchange](https://data.humdata.org/dataset/cod-ab-tha). The Royal Thai Survey Department (กรมแผนที่ทหาร) drew them. GeoThai changes the p-codes to DOPA codes, links the old codes to the subdistricts that replaced them, and simplifies the lines. If a shape cannot be linked to the DOPA registry, the build stops.
+A private pipeline builds these files from the OCHA COD-AB lines. The code stays private. These are the steps:
+
+```mermaid
+flowchart TD
+  codab[OCHA COD-AB subdistrict lines<br/>Royal Thai Survey Department, 2022]
+  registry[DOPA registry<br/>from GeoThai/data]
+  link{Link each shape to a code}
+  same[Same code, still active]
+  old[Abolished code<br/>to its successors from a notice]
+  new[New khwaeng without a shape<br/>to the one shape in its district]
+  stop([Stop: no guess])
+  dissolve[Dissolve districts and provinces<br/>from the same lines]
+  simplify[Keep 5% of the points<br/>add codes and names]
+  release([GeoJSON per level + one TopoJSON])
+
+  codab --> link
+  registry --> link
+  link --> same
+  link --> old
+  link --> new
+  link -- none of these --> stop
+  same --> dissolve
+  old --> dissolve
+  new --> dissolve
+  dissolve --> simplify --> release
+```
+
+[`manifest.json`](./manifest.json) lists the source file with its URL, SHA-256 and date, and the shapes that cover more than one subdistrict.
 
 ## Versions
 
