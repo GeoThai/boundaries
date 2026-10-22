@@ -1,0 +1,55 @@
+{
+  "version": "2026.10.22",
+  "generated_at": "2026-10-22T06:33:30.172Z",
+  "counts": {
+    "provinces": 77,
+    "districts": 928,
+    "subdistrict_shapes": 7425,
+    "subdistricts": 7436
+  },
+  "simplify": "weighted 5% keep-shapes",
+  "precision": 0.0001,
+  "shared_shapes": [
+    [
+      "100905",
+      "100910"
+    ],
+    [
+      "101401",
+      "101406"
+    ],
+    [
+      "102601",
+      "102602"
+    ],
+    [
+      "103401",
+      "103402",
+      "103403"
+    ],
+    [
+      "104401",
+      "104402",
+      "104403"
+    ],
+    [
+      "104702",
+      "104703"
+    ],
+    [
+      "105002",
+      "105003",
+      "105004",
+      "105005"
+    ]
+  ],
+  "sources": [
+    {
+      "id": "ocha-cod-ab-tha",
+      "url": "https://data.humdata.org/dataset/d24bdc45-eb4c-4e3d-8b16-44db02667c27/resource/10dde461-b781-4904-9559-7deb3e960913/download/tha_admin_boundaries.shp.zip",
+      "sha256": "cc62b47b3d38a83b958673c3dc6ec888326180aa437b2cd9224d7a8b1eff64aa",
+      "as_of": "2026-01-26",
+      "license": "CC-BY-3.0-IGO"
+    }
+  ]
+}
