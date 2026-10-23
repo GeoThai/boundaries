@@ -97,7 +97,7 @@ flowchart TD
 
 ## Versions
 
-A version is the date of the build in Thailand, such as `v2026.10.22`. If the source lines and the codes did not change, no release ships.
+A version is the date of the build in Thailand, such as `v2026.10.23`. If the source lines and the codes did not change, no release ships.
 
 ## License
 
