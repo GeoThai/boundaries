@@ -20,6 +20,7 @@ The boundaries of every province, district and subdistrict of Thailand, on DOPA 
 | [`districts.geojson`](./districts.geojson)       | Districts, with `province_code`                           | 928    |
 | [`subdistricts.geojson`](./subdistricts.geojson) | Subdistricts, with `district_code` and `province_code`    | 7,425  |
 | [`boundaries.topojson`](./boundaries.topojson)   | The three levels as layers in one file                    | 8,430  |
+| [`datawrapper/`](./datawrapper)                  | Lighter TopoJSON files for Datawrapper                    |        |
 | [`manifest.json`](./manifest.json)               | Counts, simplification, shared shapes and the source file |        |
 
 Coordinates have 4 decimal places, about 10 m.
@@ -50,6 +51,18 @@ const provinces = await (await fetch(url)).json();
 ```
 
 To show the subdistricts of one province, filter the features by `province_code`.
+
+### Datawrapper
+
+Datawrapper takes a TopoJSON file of up to 2 MB as a custom base map. The files in [`datawrapper/`](./datawrapper) fit that limit:
+
+| File                                   | Size                                  |
+| -------------------------------------- | ------------------------------------- |
+| `datawrapper/provinces.topojson`       | 182 kB                                |
+| `datawrapper/districts.topojson`       | 604 kB                                |
+| `datawrapper/subdistricts/84.topojson` | One file per province, 120 kB at most |
+
+In Datawrapper, choose a choropleth map, then click Upload map. Match your data on the `code` column. The [map page](https://geothai.fasu.dev/map/) turns a table of Thai names into that column.
 
 ## How it is built
 
