@@ -46,7 +46,7 @@ Pin a release, so the shapes do not change under you:
 
 ```js
 const url =
-  "https://cdn.jsdelivr.net/gh/GeoThai/boundaries@v2026.10.22/provinces.geojson";
+  "https://cdn.jsdelivr.net/gh/GeoThai/boundaries@v2026.10.23/provinces.geojson";
 const provinces = await (await fetch(url)).json();
 ```
 
